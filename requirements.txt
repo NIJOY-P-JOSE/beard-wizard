@@ -1,0 +1,5 @@
+django
+opencv-python
+mediapipe
+numpy
+channels

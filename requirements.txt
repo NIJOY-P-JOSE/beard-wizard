@@ -3,3 +3,5 @@ opencv-python
 mediapipe
 numpy
 channels
+gunicorn
+whitenoise

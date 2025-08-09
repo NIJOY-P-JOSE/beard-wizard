@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Face Analysis - Beard Wizard</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #111827; }
+        /* Custom file input style */
+        input[type="file"]::file-selector-button {
+            background-color: #374151; /* bg-gray-700 */
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem; /* rounded-md */
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        input[type="file"]::file-selector-button:hover {
+            background-color: #4b5563; /* bg-gray-600 */
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <header class="py-6 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-tighter text-white">AI Face <span class="text-amber-400">Analysis</span></h1>
+            <nav>
+                <a href="{% url 'home' %}" class="text-gray-400 hover:text-amber-400 transition-colors duration-300 font-medium">&larr; Back to Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 max-w-2xl">
+        <div class="bg-gray-800/50 p-8 rounded-xl border border-gray-700/50">
+            
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold text-white">Get Your Personal Style Report</h3>
+                <p class="text-gray-400 mt-2">Upload a clear, front-facing photo of yourself. Our AI will analyze your face shape and recommend the most flattering beard styles for you.</p>
+            </div>
+
+            <!-- File Upload Form -->
+            <form id="analysis-form" method="POST" action="{% url 'analyze_face' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label for="face-photo" class="sr-only">Choose file</label>
+                    <input type="file" name="face_photo" id="face-photo" class="block w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-gray-700 file:text-gray-200 hover:file:bg-gray-600" required>
+                </div>
+                <button type="submit" class="w-full bg-amber-500 text-gray-900 font-bold py-3 px-8 rounded-lg hover:bg-amber-400 transition-all duration-300">
+                    Analyze My Face
+                </button>
+            </form>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading-indicator" class="text-center py-10 hidden">
+            <svg class="animate-spin h-8 w-8 text-amber-400 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <p class="mt-4 text-gray-400">Our AI is analyzing your photo... Please wait.</p>
+        </div>
+
+        <!-- Results Section -->
+        {% if analysis_result %}
+        <div id="results-section" class="mt-8 bg-gray-800/50 p-8 rounded-xl border border-gray-700/50">
+            <h4 class="text-2xl font-bold text-white mb-4 border-b border-amber-500/20 pb-2">Your Style Report</h4>
+            <div class="prose prose-invert max-w-none text-gray-300">
+                {{ analysis_result|linebreaks }}
+            </div>
+        </div>
+        {% endif %}
+
+    </main>
+
+    <script>
+        const form = document.getElementById('analysis-form');
+        const loadingIndicator = document.getElementById('loading-indicator');
+
+        form.addEventListener('submit', function() {
+            // Hide the form and show the loading indicator on submit
+            form.parentElement.classList.add('hidden');
+            loadingIndicator.classList.remove('hidden');
+        });
+    </script>
+
+</body>
+</html>

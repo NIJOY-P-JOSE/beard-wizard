@@ -1,0 +1,156 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beard Wizard - AI Grooming Assistant</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Apply the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Custom gradient for the hero section background */
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 0%, rgba(31, 41, 55, 0.5), rgba(17, 24, 39, 0) 70%), #111827;
+        }
+
+        /* Custom shadow for a subtle glow effect on cards */
+        .card-glow {
+             box-shadow: 0 0 15px rgba(251, 191, 36, 0.1);
+        }
+        .card-glow:hover {
+            box-shadow: 0 0 25px rgba(251, 191, 36, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <!-- Header Section -->
+    <header class="py-6 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-tighter text-white">
+                Beard <span class="text-amber-400">Wizard</span>
+            </h1>
+            <nav>
+                <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-gradient text-center py-20 md:py-32 px-4">
+            <div class="container mx-auto">
+                <h2 class="text-4xl md:text-6xl font-black text-white leading-tight tracking-tighter mb-4">
+                    Master Your Style.
+                </h2>
+                <p class="max-w-2xl mx-auto text-lg md:text-xl text-gray-400 mb-8">
+                    The ultimate AI-powered toolkit for perfect beard grooming. From precise cutting guides to virtual try-ons, achieve the perfect look every time.
+                </p>
+                <a href="#features" class="bg-amber-400 text-gray-900 font-bold py-3 px-8 rounded-lg hover:bg-amber-300 transition-all duration-300 transform hover:scale-105">
+                    Explore Features
+                </a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 md:py-24 bg-gray-900">
+            <div class="container mx-auto px-4">
+                
+                <!-- Section Title -->
+                <div class="text-center mb-12 md:mb-16">
+                    <h3 class="text-3xl md:text-4xl font-bold text-white">Choose Your Tool</h3>
+                    <p class="text-gray-500 mt-2">Select an option below to get started.</p>
+                </div>
+
+                <!-- Features Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- Card 1: Beard Cutting Guide -->
+                    <div class="card-glow bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700/50 flex flex-col items-center text-center transform hover:-translate-y-2 transition-all duration-300">
+                        <!-- Icon -->
+                        <div class="bg-gray-700 p-4 rounded-full mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.828 2.828M11.95 11.95c.586.586 1.536.586 2.121 0l-2.121-2.121c-.586-.586-.586-1.536 0-2.121l2.121 2.121zM3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
+                            </svg>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-3">Live Trimming Guide</h4>
+                        <p class="text-gray-400 mb-6 flex-grow">
+                            Use your webcam as a magic mirror. Our real-time overlay acts as a stencil, guiding your trimmer for a perfectly symmetrical shape.
+                        </p>
+                        <a href="{% url 'trimm' %}" class="w-full bg-amber-500 text-gray-900 font-semibold py-3 rounded-lg hover:bg-amber-400 transition-colors duration-300">
+                            Start Trimming
+                        </a>
+                    </div>
+
+                    <!-- Card 2: Beard Style Filters -->
+                    <div class="card-glow bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700/50 flex flex-col items-center text-center transform hover:-translate-y-2 transition-all duration-300">
+                        <!-- Icon -->
+                        <div class="bg-gray-700 p-4 rounded-full mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                            </svg>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-3">Virtual Try-On</h4>
+                        <p class="text-gray-400 mb-6 flex-grow">
+                            Not sure which style suits you? Try on dozens of different beard styles with our realistic AI filters before you make the cut.
+                        </p>
+                        <button onclick="handleFeatureClick('virtual_try_on')" class="w-full bg-gray-700 text-white font-semibold py-3 rounded-lg hover:bg-gray-600 transition-colors duration-300">
+                            Try Styles
+                        </button>
+                    </div>
+
+                    <!-- Card 3: AI Image Analysis -->
+                    <div class="card-glow bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700/50 flex flex-col items-center text-center transform hover:-translate-y-2 transition-all duration-300">
+                        <!-- Icon -->
+                        <div class="bg-gray-700 p-4 rounded-full mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-3">AI Face Analysis</h4>
+                        <p class="text-gray-400 mb-6 flex-grow">
+                            Upload a photo of your face and our AI will analyze your face shape, suggesting the most flattering beard styles for you.
+                        </p>
+                        <button onclick="handleFeatureClick('ai_analysis')" class="w-full bg-gray-700 text-white font-semibold py-3 rounded-lg hover:bg-gray-600 transition-colors duration-300">
+                            Analyze My Face
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="container mx-auto py-6 px-4 text-center text-gray-500">
+            <p>&copy; 2025 Beard Wizard. All Rights Reserved.</p>
+            <p class="text-sm mt-1">A Useless Hackathon Project by Sijoy & Nijoy</p>
+        </div>
+    </footer>
+
+    <script>
+        // Placeholder function to handle feature selection clicks.
+        // In a real application, this would navigate to the different pages or load components.
+        function handleFeatureClick(feature) {
+            console.log(`Navigating to feature: ${feature}`);
+            alert(`You clicked on the "${feature.replace(/_/g, ' ')}" feature! This is where the magic would happen.`);
+        }
+    </script>
+
+</body>
+</html>

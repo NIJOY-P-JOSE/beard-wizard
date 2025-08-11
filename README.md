@@ -1,95 +1,100 @@
-Beard Wizard 🎯
-Basic Details
-Team Name: The Whisker Wizards
-Team Members
-Team Lead: Nijoy p Jose  Vidya Academy of science and technology thalakkottukara
+<img width="100%" alt="Beard Wizard Banner" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
 
-Member 2: Albin Antony Vidya Academy of science and technology thalakkottukara
+# Beard Wizard 🎯
 
-Project Description
-Beard Wizard is a cutting-edge, AI-powered virtual try-on application. It uses your webcam to accurately map your face and lets you preview different beard styles in real-time, helping you make life's most important decisions without the commitment of actually growing hair.
+## Basic Details
+### Team Name: Half Baked
 
-The Problem (that doesn't exist)
-The modern world suffers from a critical epidemic of "beard regret." Countless hours and resources are wasted growing beards that just don't match one's face, leading to existential dread and a sudden urge to buy a fedora. We needed to stop this crisis.
+### Team Members
+- Team Lead: Nijoy P Jose - Vidya Acadmy of Science and Technology, Thrissur
+- Member 2: Albin Antony - Vidya Acadmy of Science and Technology, Thrissur
 
-The Solution (that nobody asked for)
-We created a "time machine" for your face. By harnessing the power of advanced AI and a sprinkle of web magic, Beard Wizard allows you to see your bearded future, today. It's a risk-free environment for facial hair exploration, saving humanity from questionable grooming choices one virtual beard at a time.
+### Project Description
+Beard Wizard is an AI-powered web application that acts as a "magic mirror" for beard grooming. Using a live webcam feed, it overlays precise, real-time cutting guides for various beard styles directly onto your face, ensuring a perfectly symmetrical trim every time.
 
-Technical Details
-Technologies/Components Used
+### The Problem (that doesn't exist)
+The crippling anxiety of an uneven beard trim. Every year, millions of men face the mirror, trimmer in hand, only to emerge with a lopsided monstrosity. The emotional toll is immeasurable, leading to a global crisis of confidence and an over-reliance on expensive barbers.
+
+### The Solution (that nobody asked for)
+We've weaponized AI and computer vision to fight back. Beard Wizard streams a live video of your face from your Django server, runs it through a sophisticated Python/OpenCV backend, and draws the perfect beard outline for you to follow. It's like having a tiny, digital barber living in your computer, guiding your every move.
+
+## Technical Details
+### Technologies/Components Used
 For Software:
-
-Languages: Python, JavaScript, HTML, CSS
-
-Frameworks: Django (for the backend structure)
-
-Libraries: MediaPipe (for AI face landmark detection), OpenCV (for image processing computer vision)Tailwind CSS (for styling)
-
-Tools: VS Code, Git & GitHub
+- **Languages:** Python, JavaScript, HTML, CSS
+- **Frameworks:** Django
+- **Libraries:** OpenCV (`opencv-python`), MediaPipe, NumPy
+- **Styling:** Tailwind CSS
 
 For Hardware:
+- A standard webcam (the one on your laptop is perfect)
 
-A standard webcam (the one staring back at you).
+### Implementation
+For Software:
+# Installation
+1.  **Clone the Repository:**
+    ```bash
+    git clone https://github.com/NIJOY-P-JOSE/beard-wizard
+    ```
+2.  **Navigate to Project Directory:**
+    ```bash
+    cd beard-wizard
+    ```
+3.  **Create and Activate a Virtual Environment:**
+    * On Windows:
+        ```bash
+        python -m venv venv
+        .\venv\Scripts\activate
+        ```
+    * On macOS/Linux:
+        ```bash
+        python3 -m venv venv
+        source venv/bin/activate
+        ```
+4.  **Install Required Packages:**
+    Use the provided `requirements.txt` file to install all dependencies at once.
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-A computer capable of running a web browser.
+# Run
+1.  **Start the Django Server:**
+    Make sure you are in the main project directory where `manage.py` is located.
+    ```bash
+    python manage.py runserver
+    ```
+2.  **View the Application:**
+    Open your web browser and navigate to the following address:
+    `http://12.0.0.1:8000/`
 
-Implementation
+### Project Documentation
 For Software:
 
-Installation
-# Clone the repository
-git clone https://github.com/your-username/beard-wizard.git
-cd beard-wizard
+# Screenshots
+<img width="1918" height="807" alt="image" src="https://github.com/user-attachments/assets/0ef8458b-e41f-40a9-b8f3-d5f2debea08e" />
+<img width="1918" height="927" alt="image" src="https://github.com/user-attachments/assets/62dc36d2-3412-45db-9e0e-63b64108e415" />
 
-# Create a virtual environment and activate it
-python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+*The stylish and modern homepage of Beard Wizard.*
 
-# Install dependencies
-pip install django
+![WhatsApp Image 2025-08-09 at 4 46 42 PM](https://github.com/user-attachments/assets/60cf8ac1-0b3d-4442-8085-bdb8ad227af0)
+*A user selecting the "Classic Full Beard" style from the control panel.*
 
+# Diagrams
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/933b27a3-ab60-44e2-a252-95d5d3afbae8" />
 
-Run
-# Apply migrations
-python manage.py migrate
+*Our high-level architecture: The browser displays a video stream from a Django URL, which is generated in real-time by a Python view using OpenCV and MediaPipe to process webcam frames.*
 
-# Start the development server
-python manage.py runserver
+### Project Demo
+# Video
+https://github.com/user-attachments/assets/c757e817-5b63-440e-bc18-17f44f13a8f0
+*This video demonstrates the core feature: a user accessing the web app, starting the trimming guide, and switching between different beard style overlays in real-time.*
 
+## Team Contributions
+- **Nijoy P Jose**: Backend development (Django setup, Python/OpenCV logic), AI integration with MediaPipe, and video streaming implementation.
+- **Albin Antony**: Frontend development (HTML, Tailwind CSS), user interface design, and creating the overall user experience.
 
-Then, open your browser and navigate to http://127.0.0.1:8000/tryon/
+---
+Made with ❤️ at TinkerHub Useless Projects 
 
-Project Documentation
-For Software:
-
-Screenshots (Add at least 3)
-The application initializing the camera and loading the powerful AI model.
-
-A user looking majestic while trying on the "Balbo" beard style in real-time.
-
-A close-up of the user interface, showing the different beard styles available to choose from.
-
-Diagrams
-Our highly technical workflow: The user opens the page, JavaScript accesses the webcam, MediaPipe finds the face, and our code draws a glorious beard on it. The Django backend just serves the initial page and enjoys the show.
-
-For Hardware:
-
-Schematic & Circuit
-Not Applicable - Our project is purely software-based and requires no custom hardware.
-
-Build Photos
-Not Applicable - Our build process involved more caffeine than solder.
-
-Project Demo
-Video
-https://www.your-demo-link.com/beard-wizard-demo
-This video demonstrates the core functionality of the Beard Wizard app. It shows a user starting the application, cycling through the different beard styles (Balbo, Van Dyke, Goatee), and how the filters track the face smoothly with head movements.
-
-Additional Demos
-N/A
-
-Team Contributions
-Nijoy P Jose 
-Albin Antony
-
-Made with ❤️ at TinkerHub Useless Projects
+![Static Badge](https://img.shields.io/badge/TinkerHub-24?color=%23000000&link=https%3A%2F%2Fwww.tinkerhub.org%2F)
+![Static Badge](https://img.shields.io/badge/UselessProjects--25-25?link=https%3A%2F%2Fwww.tinkerhub.org%2Fevents%2FQ2Q1TQKX6Q%2FUseless%2520Projects)

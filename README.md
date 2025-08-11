@@ -86,7 +86,7 @@ For Software:
 
 ### Project Demo
 # Video
-https://github.com/user-attachments/assets/c757e817-5b63-440e-bc18-17f44f13a8f0
+!Demo(https://github.com/user-attachments/assets/c757e817-5b63-440e-bc18-17f44f13a8f0)
 *This video demonstrates the core feature: a user accessing the web app, starting the trimming guide, and switching between different beard style overlays in real-time.*
 
 ## Team Contributions
